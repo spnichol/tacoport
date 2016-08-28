@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'grid';
+html { 
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: $bestcolor;
+}
+
+nav.content-navigation{
+	ul {
+display: flex;
+justify-content: flex-end;
+flex-flow: row wrap;
+background-color: transparent;
+list-style: none;
+position: fixed;
+width: 100vw;
+top: 10;
+
+		a {
+  background: transparent;
+  color: white;
+  letter-spacing: 2px;
+  outline: none;
+  font-family: "amatic sc";
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 2rem;
+  font-family: "amatic sc";
+  font-size: 30px;
+  font-weight: 700;
+  flex-shrink: 1;
+  margin-top: 10px;
+ 
+ 	
+}
+	}	
+		}
+
+  nav.content-navigation ul a.current {
+      background-color: $tacoyellow;
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  	  border: solid;
+  	  border-color: white; }
