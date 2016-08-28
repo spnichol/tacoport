@@ -10,7 +10,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 
 gulp.task('sass', function(){
-	return gulp.src('app/scss/**/*.scss')
+	return gulp.src('scss/**/*.scss')
 		.pipe(sass())
 		.pipe(gulp.dest('css'))
 		.pipe(gulp.dest('dist/css'))
@@ -24,28 +24,28 @@ gulp.task('sass', function(){
 
 
 gulp.task('watch', ['browserSync', 'sass'], function(){
-	gulp.watch('app/scss/**/*.scss', ['sass']);
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
+	gulp.watch('scss/**/*.scss', ['sass']);
+	gulp.watch('*.html', browserSync.reload);
+	gulp.watch('js/**/*.js', browserSync.reload);
 });
 
 gulp.task('browserSync', function() {
 	browserSync.init({
 		server: {
-			baseDir: 'app'
+			baseDir: './'
 		},
 	})
 })
 
 gulp.task('useref', function() {
-	return gulp.src('app/*.html')
+	return gulp.src('*.html')
 		.pipe(useref())
 		.pipe(gulpIf('*.js', uglify()))
 		.pipe(gulp.dest('dist'))
 });
 
 gulp.task('images', function(){
-	return gulp.src('app/images/**/*.+(png|jpg|gif|svg)')
+	return gulp.src('images/**/*.+(png|jpg|gif|svg)')
 		.pipe(cache(imagemin({
 			interlaced: true
 		})))
@@ -53,7 +53,7 @@ gulp.task('images', function(){
 });
 
 gulp.task('fonts', function() {
-  return gulp.src('app/fonts/**/*')
+  return gulp.src('fonts/**/*')
   .pipe(gulp.dest('dist/fonts'))
 })
 
